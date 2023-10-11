@@ -38,8 +38,8 @@ module.exports = {
       const findBookedRooms = await Booking.find({
         roomNumber: roomNumber,
         $or: [
-          { startTime: { $lte: startTime }, endTime: { $gte: startTime } },
-          { startTime: { $lte: endTime }, endTime: { $gte: endTime } },
+          { startTime: { $lte: new Date(startTime) }, endTime: { $gte: new Date(startTime) } },
+          { startTime: { $lte: new Date(endTime) }, endTime: { $gte: new Date(endTime) } },
         ],
       });
 
