@@ -35,16 +35,6 @@ module.exports = {
         });
       }
 
-      if (
-        new Date(startTime) >= new Date() == false ||
-        new Date(startTime) < new Date(endTime) == false
-      ) {
-        return res.status(400).json({
-          message:
-            "Start time should be greater than or equal to toaday and end time should be greater than startTime.",
-        });
-      }
-
       const findBookedRooms = await Booking.find({
         roomNumber: roomNumber,
         $or: [
